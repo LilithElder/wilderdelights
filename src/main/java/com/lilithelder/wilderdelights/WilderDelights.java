@@ -47,97 +47,6 @@ public class WilderDelights implements ModInitializer {
                 .result("wilderdelights:coconut_popsicle", 1)
                 .build();
 
-        // Azalea Tea
-        addon.food("azalea_tea")
-                .nutrition(2) // Determines how many hunger points it restores
-                .saturation(0.2f) // Sets the hidden value that keeps a player full longer
-                .drinkable() // Sets a drinking animation and returns a glass bottle as leftover
-                .withEffect(MobEffects.LUCK, FoodValues.MEDIUM_DURATION, 0, 1.0f)
-                .alwaysEdible() // Allows to consume this even if the hunger bar is full
-                .build(); // Registers the item
-
-        addon.cookingRecipe("azalea_tea") // Creates a new recipes for the cooking pot
-                .addIngredient("minecraft:flowering_azalea_leaves") // Adds a required ingredien
-                .addIngredient("minecraft:azalea_leaves") // Adds a second required ingredient
-                .addIngredient("minecraft:sugar") // Adds a third required ingredient
-
-                // You're able to add up to six total ingredients for your recipes
-
-                .result("wilderdelights:azalea_tea") // Sets the final item you receive when cooking finishes
-                .container("minecraft:glass_bottle") // Requires a specific container to hold the cooked item
-                .experience(1.0f) // Amount of XP received after cooking
-                .cookingTime(200) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
-                .recipeBookTab("drinks") // Places this recipes into the meals category in the recipes book
-                .build(); // Registers the recipes
-        // Cactus Tea
-        addon.food("cactus_tea")
-                .nutrition(3) // Determines how many hunger points it restores
-                .saturation(0.5f) // Sets the hidden value that keeps a player full longer
-                .drinkable() // Sets a drinking animation and returns a glass bottle as leftover
-                .withEffect(MobEffects.NAUSEA, FoodValues.BRIEF_DURATION, 0, 1.0f)
-                .withEffect(MobEffects.ABSORPTION, FoodValues.MEDIUM_DURATION, 0,1.0f)
-                .alwaysEdible() // Allows to consume this even if the hunger bar is full
-                .build(); // Registers the item
-
-        addon.cookingRecipe("cactus_tea") // Creates a new recipes for the cooking pot
-                .addIngredient("minecraft:cactus") // Adds a required ingredien
-                .addIngredient("minecraft:cactus") // Adds a second required ingredient
-                .addIngredient("minecraft:sugar") // Adds a third required ingredient
-
-                // You're able to add up to six total ingredients for your recipes
-
-                .result("wilderdelights:cactus_tea") // Sets the final item you receive when cooking finishes
-                .container("minecraft:glass_bottle") // Requires a specific container to hold the cooked item
-                .experience(1.0f) // Amount of XP received after cooking
-                .cookingTime(200) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
-                .recipeBookTab("drinks") // Places this recipes into the meals category in the recipes book
-                .build(); // Registers the recipes
-        // Dandelion Juice
-        addon.food("dandelion_juice")
-                .nutrition(2) // Determines how many hunger points it restores
-                .saturation(0.2f) // Sets the hidden value that keeps a player full longer
-                .drinkable() // Sets a drinking animation and returns a glass bottle as leftover
-                .withEffect(MobEffects.SATURATION, FoodValues.MEDIUM_DURATION, 0, 1.0f)
-                .alwaysEdible() // Allows to consume this even if the hunger bar is full
-                .build(); // Registers the item
-
-        addon.cookingRecipe("dandelion_juice") // Creates a new recipes for the cooking pot
-                .addIngredient("minecraft:dandelion") // Adds a required ingredien
-                .addIngredient("minecraft:dandelion") // Adds a second required ingredient
-                .addIngredient("minecraft:sugar") // Adds a third required ingredient
-
-                // You're able to add up to six total ingredients for your recipes
-
-                .result("wilderdelights:dandelion_juice") // Sets the final item you receive when cooking finishes
-                .container("minecraft:glass_bottle") // Requires a specific container to hold the cooked item
-                .experience(1.0f) // Amount of XP received after cooking
-                .cookingTime(200) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
-                .recipeBookTab("drinks") // Places this recipes into the meals category in the recipes book
-                .build(); // Registers the recipes
-
-        // Golden Apple Cider
-        addon.food("golden_apple_cider")
-                .nutrition(8) // Determines how many hunger points it restores
-                .saturation(0.8f) // Sets the hidden value that keeps a player full longer
-                .drinkable() // Sets a drinking animation and returns a glass bottle as leftover
-                .withEffect(MobEffects.ABSORPTION, FoodValues.MEDIUM_DURATION, 0, 1.0f)
-                .withEffect(MobEffects.REGENERATION, FoodValues.BRIEF_DURATION,0,1.0f)
-                .alwaysEdible() // Allows to consume this even if the hunger bar is full
-                .build(); // Registers the item
-
-        addon.cookingRecipe("golden_apple_cider") // Creates a new recipes for the cooking pot
-                .addIngredient("minecraft:golden_apple") // Adds a required ingredient
-                .addIngredient("minecraft:golden_apple") // Adds a second required ingredient
-                .addIngredient("minecraft:sugar") // Adds a third required ingredient
-
-                // You're able to add up to six total ingredients for your recipes
-
-                .result("wilderdelights:golden_apple_cider") // Sets the final item you receive when cooking finishes
-                .container("minecraft:glass_bottle") // Requires a specific container to hold the cooked item
-                .experience(1.5f) // Amount of XP received after cooking
-                .cookingTime(200) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
-                .recipeBookTab("drinks") // Places this recipes into the meals category in the recipes book
-                .build(); // Registers the recipes
         // Prickly Pear Juice
         addon.food("prickly_pear_juice")
                 .nutrition(2) // Determines how many hunger points it restores
@@ -265,26 +174,6 @@ public class WilderDelights implements ModInitializer {
                 .recipeBookTab("drinks")
                 .build();
 
-        //Risotto
-        addon.food("risotto") // Creates a stew
-                .nutrition(7) // Determines how many hunger points it restores
-                .saturation(0.4f) // Sets the hidden value that keeps a player full longer
-                .bowlFood() // Returns a bowl after eating
-                .build(); // Registers the item
-
-        addon.cookingRecipe("risotto") // Creates a new recipes for the cooking pot
-                .addTagIngredient("c:crops/rice") // Adds a required ingredient
-                .addIngredient("minecraft:carrot") // Adds a second required ingredient
-                .addTagIngredient("c:crops/onion") // Adds a third required ingredient
-
-                // You're able to add up to six total ingredients for your recipes
-
-                .result("wilderdelights:risotto") // Sets the final item you receive when cooking finishes
-                .container("minecraft:bowl") // Requires a specific container to hold the cooked item
-                .experience(1.0f) // Amount of XP received after cooking
-                .cookingTime(200) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
-                .recipeBookTab("meals") // Places this recipes into the meals category in the recipes book
-                .build(); // Registers the recipes
         //Coconut Curry
         addon.food("coconut_curry") // Creates a stew
                 .nutrition(15) // Determines how many hunger points it restores
