@@ -10,12 +10,10 @@
   "item.wilderdelights.azalea_tea": "Azalea Tea",
   "item.wilderdelights.baobab_cabinet": "Baobab Cabinet",
   "item.wilderdelights.cactus_tea": "Cactus Tea",
-  "item.wilderdelights.chocolate_popsicle": "Chocolate Popsicle",
   "item.wilderdelights.coconut_curry": "Coconut Curry",
   "item.wilderdelights.coconut_popsicle": "Coconut Popsicle",
   "item.wilderdelights.cypress_cabinet": "Cypress Cabinet",
   "item.wilderdelights.dandelion_juice": "Dandelion Juice",
-  "item.wilderdelights.glow_berry_popsicle": "Glow Berry Popsicle",
   "item.wilderdelights.golden_apple_cider": "Golden Apple Cider",
   "item.wilderdelights.maple_cabinet": "Maple Cabinet",
   "item.wilderdelights.marigold_syrup": "Marigold Syrup",
@@ -26,11 +24,7 @@
   "item.wilderdelights.purple_hibiscus_tea": "Purple Hibiscus Tea",
   "item.wilderdelights.red_hibiscus_tea": "Red Hibiscus Tea",
   "item.wilderdelights.risotto": "Risotto",
-  "item.wilderdelights.sweet_berry_popsicle": "Sweet Berry Popsicle",
   "item.wilderdelights.white_hibiscus_tea": "White Hibiscus Tea",
   "item.wilderdelights.willow_cabinet": "Willow Cabinet",
-  "item.wilderdelights.yellow_hibiscus_tea": "Yellow Hibiscus Tea",
-  "item.wilderdelights.baobab_nut_crate": "Baobab Nut Crate",
-  "item.wilderdelights.coconut_crate": "Coconut Crate",
-  "item.wilderdelights.prickly_pear_crate": "Prickly Pear Crate"
+  "item.wilderdelights.yellow_hibiscus_tea": "Yellow Hibiscus Tea"
 }
