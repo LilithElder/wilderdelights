@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": "wilderwild:cypress_slab",
+    "T": "wilderwild:cypress_trapdoor"
+  },
+  "pattern": [
+    "OOO",
+    "T T",
+    "OOO"
+  ],
+  "result": {
+    "count": 1,
+    "id": "wilderdelights:cypress_cabinet"
+  }
+}

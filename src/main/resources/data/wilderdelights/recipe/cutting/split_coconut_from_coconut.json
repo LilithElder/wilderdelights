@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    "wilderwild:coconut"
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 2,
+        "id": "wilderwild:split_coconut"
+      }
+    }
+  ],
+  "tool": "#minecraft:axes"
+}

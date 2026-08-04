@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": "wilderwild:maple_slab",
+    "T": "wilderwild:maple_trapdoor"
+  },
+  "pattern": [
+    "OOO",
+    "T T",
+    "OOO"
+  ],
+  "result": {
+    "count": 1,
+    "id": "wilderdelights:maple_cabinet"
+  }
+}

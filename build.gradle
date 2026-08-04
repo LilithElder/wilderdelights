@@ -1,0 +1,117 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    maven { url = "https://cursemaven.com" }
+    maven { url = "https://jitpack.io" }
+}
+
+loom {
+    splitEnvironmentSourceSets()
+
+    mods {
+        "wilderdelights" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+
+}
+
+dependencies {
+// To change the versions see the build.gradle file
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+// Fabric API. This is technically optional, but you probably want it anyway.
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+    implementation "curse.maven:farmers-delight-refabricated-993166:8483103"
+    implementation 'com.github.axperty:delightlib:50a7936638'
+    implementation "curse.maven:delight-lib-1531135:8310065"
+    implementation "curse.maven:wilder-wild-648511:8318343"
+    implementation "curse.maven:frozenlib-709773:8400750"
+//    implementation "curse.maven:jei-238222:8519678"
+    implementation "curse.maven:appleskin-248787:8271985"
+    implementation "curse.maven:jade-324717:8347273"
+}
+
+def expandProps = [
+        "mod_version": project.mod_version,
+        "mod_id": project.mod_id,
+        "mod_name": project.mod_name,
+        "mod_description": project.mod_description,
+        "mod_authors": project.mod_authors,
+        "mod_license": project.mod_license
+]
+
+processResources {
+    inputs.properties(expandProps)
+
+    filesMatching("fabric.mod.json") {
+        expand(expandProps)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 25
+}
+
+java {
+// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+// if it is present.
+// If you remove this line, sources will not be generated.
+    withSourcesJar()
+
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+    inputs.property "archivesName", project.base.archivesName
+
+    from("LICENSE") {
+        rename { "${it}_${inputs.properties.archivesName}"}
+    }
+}
+
+// configure the maven publication
+publishing {
+    publications {
+        create("mavenJava", MavenPublication) {
+            artifactId = project.archives_base_name
+            from components.java
+        }
+    }
+
+// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+// Add repositories to publish to here.
+// Notice: This block does NOT have the same function as the block in the top level.
+// The repositories here will be used for publishing your artifact, not for
+// retrieving dependencies.
+    }
+}
+
+fabricApi {
+    configureDataGeneration() {
+        client = true
+    }
+}
+
+loom {
+    runs {
+        named("datagen") {
+            vmArg "-Dfabric-api.datagen.modid=wilderdelights"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": "wilderwild:baobab_slab",
+    "T": "wilderwild:baobab_trapdoor"
+  },
+  "pattern": [
+    "OOO",
+    "T T",
+    "OOO"
+  ],
+  "result": {
+    "count": 1,
+    "id": "wilderdelights:baobab_cabinet"
+  }
+}

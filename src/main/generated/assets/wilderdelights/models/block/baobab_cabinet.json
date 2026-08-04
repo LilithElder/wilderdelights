@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "wilderdelights:block/baobab_cabinet_front",
+    "side": "wilderdelights:block/baobab_cabinet_side",
+    "top": "wilderdelights:block/baobab_cabinet_top"
+  }
+}

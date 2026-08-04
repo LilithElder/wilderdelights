@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:bowl"
+  },
+  "experience": 1.0,
+  "ingredients": [
+    "#c:crops/rice",
+    "wilderwild:split_coconut",
+    "#c:crops/onion",
+    "#c:foods/raw_chicken"
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "wilderdelights:coconut_curry"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": "wilderwild:palm_slab",
+    "T": "wilderwild:palm_trapdoor"
+  },
+  "pattern": [
+    "OOO",
+    "T T",
+    "OOO"
+  ],
+  "result": {
+    "count": 1,
+    "id": "wilderdelights:palm_cabinet"
+  }
+}

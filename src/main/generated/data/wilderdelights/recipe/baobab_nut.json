@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "wilderdelights:baobab_nut_crate"
+  ],
+  "result": {
+    "count": 9,
+    "id": "wilderwild:baobab_nut"
+  }
+}

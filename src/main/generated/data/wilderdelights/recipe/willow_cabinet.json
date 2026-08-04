@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": "wilderwild:willow_slab",
+    "T": "wilderwild:willow_trapdoor"
+  },
+  "pattern": [
+    "OOO",
+    "T T",
+    "OOO"
+  ],
+  "result": {
+    "count": 1,
+    "id": "wilderdelights:willow_cabinet"
+  }
+}

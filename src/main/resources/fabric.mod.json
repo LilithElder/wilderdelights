@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "wilderdelights",
+  "version": "1.0.0-26.2",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_authors}"
+  ],
+  "contact": {
+    "sources": "https://yourwebsite.com/"
+  },
+  "license": "${mod_license}",
+  "icon": "assets/wilderdelights/logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.lilithelder.wilderdelights.WilderDelightsDataGeneration"
+    ],
+    "main": [
+      "com.lilithelder.wilderdelights.WilderDelights"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~26.2",
+    "java": ">=25",
+    "fabric-api": "*",
+    "farmersdelight": "*",
+    "delightlib": "*",
+    "wilderwild": "*"
+  }
+}
