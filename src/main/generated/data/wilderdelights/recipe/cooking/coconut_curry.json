@@ -2,12 +2,11 @@
   "type": "farmersdelight:cooking",
   "container": {
     "count": 1,
-    "id": "minecraft:bowl"
+    "id": "farmersdelight:cooked_rice"
   },
   "experience": 1.0,
   "ingredients": [
-    "#c:crops/rice",
-    "wilderwild:split_coconut",
+    "wilderdelights:coconut_milk",
     "#c:crops/onion",
     "#c:foods/raw_chicken"
   ],

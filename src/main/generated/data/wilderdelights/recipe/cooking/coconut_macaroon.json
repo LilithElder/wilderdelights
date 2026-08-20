@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 1.0,
+  "ingredients": [
+    "wilderdelights:coconut_flakes",
+    "#c:eggs",
+    "minecraft:sugar",
+    "minecraft:cocoa_beans"
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "wilderdelights:coconut_macaroon"
+  }
+}
