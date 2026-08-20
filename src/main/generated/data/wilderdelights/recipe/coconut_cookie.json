@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "wilderdelights:coconut_flakes",
+    "#c:crops/wheat",
+    "#c:crops/wheat"
+  ],
+  "result": {
+    "count": 8,
+    "id": "wilderdelights:coconut_cookie"
+  }
+}

@@ -6,13 +6,11 @@
   },
   "experience": 1.0,
   "ingredients": [
-    "wilderwild:peeled_prickly_pear",
-    "wilderwild:peeled_prickly_pear",
-    "minecraft:sugar"
+    "wilderwild:split_coconut"
   ],
   "recipe_book_tab": "drinks",
   "result": {
     "count": 1,
-    "id": "wilderdelights:prickly_pear_juice"
+    "id": "wilderdelights:coconut_milk"
   }
 }

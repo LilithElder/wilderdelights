@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "wilderwild:cooked_crab_claw",
+    "#c:foods/cooked_meat",
+    "#c:foods/leafy_green",
+    "#c:foods/bread"
+  ],
+  "result": {
+    "count": 1,
+    "id": "wilderdelights:surf_and_turf_sandwich"
+  }
+}

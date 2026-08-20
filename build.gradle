@@ -35,14 +35,15 @@ dependencies {
 
 // Fabric API. This is technically optional, but you probably want it anyway.
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-    implementation "curse.maven:farmers-delight-refabricated-993166:8549103"
-    implementation 'com.github.axperty:delightlib:50a7936638'
-    implementation "curse.maven:delight-lib-1531135:8111484"
+    implementation "curse.maven:farmers-delight-refabricated-993166:8016410"
+    implementation "com.github.axperty:delightlib:7b6a2104d9"
     implementation "curse.maven:wilder-wild-648511:8022669"
     implementation "curse.maven:frozenlib-709773:8021936"
-//    implementation "curse.maven:jei-238222:8519678"
- //   implementation "curse.maven:appleskin-248787:8271985"
-//    implementation "curse.maven:jade-324717:8347273"
+
+    //For testing
+    implementation "curse.maven:jei-238222:8512111"
+    implementation "curse.maven:appleskin-248787:8254965"
+    implementation "curse.maven:jade-324717:8326264"
 }
 
 def expandProps = [

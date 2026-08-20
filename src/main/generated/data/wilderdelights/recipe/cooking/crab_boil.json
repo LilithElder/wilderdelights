@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:bowl"
+  },
+  "experience": 1.0,
+  "ingredients": [
+    "wilderwild:crab_claw",
+    "#c:crops/potato",
+    "#c:crops/onion",
+    "#c:crops/tomato"
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "wilderdelights:crab_boil"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:bowl"
+  },
+  "experience": 1.0,
+  "ingredients": [
+    "wilderdelights:coconut_milk",
+    "#c:foods/pasta",
+    "#c:foods/vegetable",
+    "#c:mushrooms"
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "wilderdelights:coconut_noodle_soup"
+  }
+}
