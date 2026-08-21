@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "wilderwild:split_coconut",
+    "minecraft:glass_bottle"
+  ],
+  "result": {
+    "count": 1,
+    "id": "wilderdelights:coconut_water"
+  }
+}

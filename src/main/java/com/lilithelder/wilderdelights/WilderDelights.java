@@ -2,12 +2,14 @@ package com.lilithelder.wilderdelights;
 
 import com.axperty.delightlib.api.DelightAddon;
 import com.axperty.delightlib.api.DelightApi;
+import com.axperty.delightlib.api.FoodDuration;
 import net.fabricmc.api.ModInitializer;
 import net.frozenblock.wilderwild.registry.WWItems;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.SoundType;
 import vectorwing.farmersdelight.common.FoodValues;
+import vectorwing.farmersdelight.common.registry.ModEffects;
 
 public class WilderDelights implements ModInitializer {
     public static final String MOD_ID = "wilderdelights";
@@ -18,57 +20,50 @@ public class WilderDelights implements ModInitializer {
         // Creative Tab Registry
         addon = DelightApi.create(MOD_ID)
                 .withCreativeTab("Wilder Delights", // Sets the add-on name in the creative tab
-                        () -> new ItemStack(WWItems.COCONUT)); // Sets a bread item icon
+                        () -> new ItemStack(WWItems.SPLIT_COCONUT)); // Sets a bread item icon
 
-        // Prickly Pear Popsicle
         addon.food("prickly_pear_popsicle")
                 .nutrition(3)
                 .saturation(0.2f)
                 .build();
-
         addon.shapedRecipe("prickly_pear_popsicle")
                 .grid(" CC", "ICC", "SI ")
-                .define('C', "wilderwild:peeled_prickly_pear")
+                .defineTag('C', "c:foods/prickly_pear")
                 .define('I', "minecraft:ice")
                 .define('S', "minecraft:stick")
                 .result("wilderdelights:prickly_pear_popsicle", 1)
                 .build();
-        // Coconut Popsicle
+
         addon.food("coconut_popsicle")
                 .nutrition(3)
                 .saturation(0.2f)
                 .build();
-
         addon.shapedRecipe("coconut_popsicle")
                 .grid(" CC", "ICC", "SI ")
-                .define('C', "wilderwild:split_coconut")
+                .define('C', "wilderdelights:coconut_milk")
                 .define('I', "minecraft:ice")
                 .define('S', "minecraft:stick")
                 .result("wilderdelights:coconut_popsicle", 1)
                 .build();
 
-        // Prickly Pear Juice
-        addon.food("prickly_pear_juice")
-                .nutrition(2) // Determines how many hunger points it restores
-                .saturation(0.2f) // Sets the hidden value that keeps a player full longer
-                .drinkable() // Sets a drinking animation and returns a glass bottle as leftover
+        addon.food("prickly_pear_hibiscus_agua_fresca")
+                .nutrition(2)
+                .saturation(0.2f)
+                .drinkable()
                 .withEffect(MobEffects.RESISTANCE, FoodValues.MEDIUM_DURATION, 0, 1.0f)
-                .alwaysEdible() // Allows to consume this even if the hunger bar is full
-                .build(); // Registers the item
+                .alwaysEdible()
+                .build();
+        addon.cookingRecipe("prickly_pear_hibiscus_agua_fresca")
+                .addTagIngredient("c:foods/prickly_pear")
+                .addTagIngredient("c:hibiscus")
+                .addIngredient("minecraft:sugar")
+                .result("wilderdelights:prickly_pear_hibiscus_agua_fresca",1)
+                .container("minecraft:glass_bottle")
+                .experience(1.0f)
+                .cookingTime(200)
+                .recipeBookTab("drinks")
+                .build();
 
-        addon.cookingRecipe("prickly_pear_juice") // Creates a new recipes for the cooking pot
-                .addIngredient("wilderwild:peeled_prickly_pear") // Adds a required ingredien
-                .addIngredient("wilderwild:peeled_prickly_pear") // Adds a second required ingredient
-                .addIngredient("minecraft:sugar") // Adds a third required ingredient
-
-                // You're able to add up to six total ingredients for your recipes
-
-                .result("wilderdelights:prickly_pear_juice") // Sets the final item you receive when cooking finishes
-                .container("minecraft:glass_bottle") // Requires a specific container to hold the cooked item
-                .experience(1.0f) // Amount of XP received after cooking
-                .cookingTime(200) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
-                .recipeBookTab("drinks") // Places this recipes into the meals category in the recipes book
-                .build(); // Registers the recipes        // Prickly Pear Juice
         addon.food("pink_hibiscus_tea")
                 .nutrition(2)
                 .saturation(0.2f)
@@ -76,7 +71,6 @@ public class WilderDelights implements ModInitializer {
                 .withEffect(MobEffects.HEALTH_BOOST, FoodValues.MEDIUM_DURATION, 0, 1.0f)
                 .alwaysEdible()
                 .build();
-
         addon.cookingRecipe("pink_hibiscus_tea")
                 .addIngredient("wilderwild:pink_hibiscus")
                 .addIngredient("wilderwild:pink_hibiscus")
@@ -87,6 +81,7 @@ public class WilderDelights implements ModInitializer {
                 .cookingTime(200)
                 .recipeBookTab("drinks")
                 .build();
+
         addon.food("red_hibiscus_tea")
                 .nutrition(2)
                 .saturation(0.2f)
@@ -104,6 +99,7 @@ public class WilderDelights implements ModInitializer {
                 .cookingTime(200)
                 .recipeBookTab("drinks")
                 .build();
+
         addon.food("purple_hibiscus_tea")
                 .nutrition(2)
                 .saturation(0.2f)
@@ -121,6 +117,7 @@ public class WilderDelights implements ModInitializer {
                 .cookingTime(200)
                 .recipeBookTab("drinks")
                 .build();
+
         addon.food("white_hibiscus_tea")
                 .nutrition(2)
                 .saturation(0.2f)
@@ -138,6 +135,7 @@ public class WilderDelights implements ModInitializer {
                 .cookingTime(200)
                 .recipeBookTab("drinks")
                 .build();
+
         addon.food("yellow_hibiscus_tea")
                 .nutrition(2)
                 .saturation(0.2f)
@@ -155,6 +153,7 @@ public class WilderDelights implements ModInitializer {
                 .cookingTime(200)
                 .recipeBookTab("drinks")
                 .build();
+
         addon.food("marigold_syrup")
                 .nutrition(2)
                 .saturation(0.2f)
@@ -174,88 +173,246 @@ public class WilderDelights implements ModInitializer {
                 .recipeBookTab("drinks")
                 .build();
 
-        //Coconut Curry
-        addon.food("coconut_curry") // Creates a stew
-                .nutrition(15) // Determines how many hunger points it restores
-                .saturation(0.9f) // Sets the hidden value that keeps a player full longer
-                .bowlFood() // Returns a bowl after eating
-                .build(); // Registers the item
+        addon.food("baobab_drink")
+                .nutrition(2)
+                .saturation(0.2f)
+                .drinkable()
+                .withEffect(MobEffects.HASTE, FoodValues.MEDIUM_DURATION, 0, 1.0f)
+                .alwaysEdible()
+                .build();
+        addon.cookingRecipe("baobab_drink")
+                .addIngredient("wilderwild:baobab_nut")
+                .addTagIngredient("c:drinks/milk")
+                .addIngredient("minecraft:sugar")
+                .result("wilderdelights:baobab_drink")
+                .container("minecraft:glass_bottle")
+                .experience(1.0f)
+                .cookingTime(200)
+                .recipeBookTab("drinks")
+                .build();
 
-        addon.cookingRecipe("coconut_curry") // Creates a new recipes for the cooking pot
-                .addTagIngredient("c:crops/rice") // Adds a required ingredient
-                .addIngredient("wilderwild:split_coconut") // Adds a second required ingredient
-                .addTagIngredient("c:crops/onion") // Adds a third required ingredient
+        addon.food("coconut_water")
+                .nutrition(2)
+                .saturation(0.2f)
+                .drinkable()
+                .withEffect(MobEffects.WATER_BREATHING, FoodValues.MEDIUM_DURATION, 0, 1.0f)
+                .alwaysEdible()
+                .build();
+        addon.shapelessRecipe("coconut_water")
+                .addIngredient("wilderwild:split_coconut")
+                .addIngredient("minecraft:glass_bottle")
+                .result("wilderdelights:coconut_water")
+                .build();
+
+        addon.food("coconut_flakes")
+                .build();
+
+        addon.food("coconut_milk")
+                .drinkable()
+                .build();
+        addon.cookingRecipe("coconut_milk")
+                .addIngredient("wilderwild:split_coconut")
+                .result("wilderdelights:coconut_milk")
+                .container("minecraft:glass_bottle")
+                .experience(1.0f)
+                .cookingTime(200)
+                .recipeBookTab("drinks")
+                .build();
+
+        addon.food("coconut_cookie")
+                .nutrition(2)
+                .saturation(0.1f)
+                .fast()
+                .build();
+        addon.shapelessRecipe("coconut_cookie")
+                .addIngredient("wilderdelights:coconut_flakes")
+                .addTagIngredient("c:crops/wheat")
+                .addTagIngredient("c:crops/wheat")
+                .result("wilderdelights:coconut_cookie", 8)
+                .build();
+
+        addon.food("coconut_macaroon")
+                .nutrition(7)
+                .saturation(0.6f)
+                .fast()
+                .build();
+        addon.cookingRecipe("coconut_macaroon")
+                .addIngredient("wilderdelights:coconut_flakes")
+                .addTagIngredient("c:eggs")
+                .addIngredient("minecraft:sugar")
+                .addIngredient("minecraft:cocoa_beans")
+                .result("wilderdelights:coconut_macaroon",1)
+                .experience(1.0f)
+                .cookingTime(200)
+                .recipeBookTab("meals")
+                .build();
+
+        addon.food("coconut_noodle_soup")
+                .nutrition(12)
+                .saturation(0.75f)
+                .withNourishment(FoodDuration.MEDIUM)
+                .bowlFood()
+                .build();
+        addon.cookingRecipe("coconut_noodle_soup")
+                .addIngredient("wilderdelights:coconut_milk")
+                .addTagIngredient("c:foods/pasta")
+                .addTagIngredient("c:foods/vegetable")
+                .addTagIngredient("c:mushrooms")
+                .result("wilderdelights:coconut_noodle_soup",1)
+                .container("minecraft:bowl")
+                .experience(1.0f)
+                .cookingTime(200)
+                .recipeBookTab("meals")
+                .build();
+
+        addon.food("coconut_curry")
+                .nutrition(15)
+                .saturation(0.9f)
+                .withNourishment(FoodDuration.LONG)
+                .bowlFood()
+                .build();
+        addon.cookingRecipe("coconut_curry")
+                .addIngredient("wilderdelights:coconut_milk")
+                .addTagIngredient("c:crops/onion")
                 .addTagIngredient("c:foods/raw_chicken")
+                .result("wilderdelights:coconut_curry",1)
+                .container("farmersdelight:cooked_rice")
+                .experience(1.0f)
+                .cookingTime(200)
+                .recipeBookTab("meals")
+                .build();
 
-                // You're able to add up to six total ingredients for your recipes
+        addon.placeableFood("coconut_pie")
+                .pie("coconut_pie_slice")
+                .build();
+        addon.food("coconut_pie_slice")
+                .nutrition(6)
+                .saturation(0.6f)
+                .build();
+        addon.shapedRecipe("coconut_pie")
+                .grid("WWW", "BBB", "SPS")
+                .define('W', "wilderdelights:coconut_flakes")
+                .define('S', "minecraft:sugar")
+                .define('P', "farmersdelight:pie_crust")
+                .define('B', "wilderdelights:coconut_milk")
+                .result("wilderdelights:coconut_pie")
+                .build();
+        addon.shapedRecipe("coconut_pie_from_slices")
+                .grid("BB ", "BB ")
+                .define('B', "wilderdelights:coconut_pie_slice")
+                .result("wilderdelights:coconut_pie")
+                .build();
 
-                .result("wilderdelights:coconut_curry") // Sets the final item you receive when cooking finishes
-                .container("minecraft:bowl") // Requires a specific container to hold the cooked item
-                .experience(1.0f) // Amount of XP received after cooking
-                .cookingTime(200) // Sets the cook duration in ticks, 200 ticks equals 10 seconds
-                .recipeBookTab("meals") // Places this recipes into the meals category in the recipes book
-                .build(); // Registers the recipes
-        //WW Cabinets
-        addon.cabinet("baobab_cabinet") // Creates a cabinet
-                .soundType(SoundType.WOOD) // Plays wood sound when broken
-                .burnTime(300) // Allows the cabinet be used as fuel, 300 ticks equals 15 seconds
-                .recipe(b -> b.grid("OOO", "T T", "OOO") // Defines the exact crafting shape in the crafting table
-                        .define('O', "wilderwild:baobab_slab") // Tells the game what item the letter O represents
-                        .define('T', "wilderwild:baobab_trapdoor")) // Tells the game what item the letter T represents
-                .build(); // Registers the cabinet
+        addon.food("tenderloin_with_prickly_pear_sauce")
+                .nutrition(14)
+                .saturation(0.75f)
+                .withNourishment(FoodDuration.MEDIUM)
+                .bowlFood()
+                .build();
+        addon.cookingRecipe("tenderloin_with_prickly_pear_sauce")
+                .addTagIngredient("c:foods/raw_meat")
+                .addTagIngredient("c:foods/prickly_pear")
+                .addTagIngredient("c:crops/potato")
+                .result("wilderdelights:tenderloin_with_prickly_pear_sauce")
+                .container("minecraft:bowl")
+                .experience(1.0f)
+                .cookingTime(200)
+                .recipeBookTab("meals")
+                .build();
+
+        addon.food("crab_boil")
+                .nutrition(12)
+                .saturation(0.8f)
+                .withNourishment(FoodDuration.MEDIUM)
+                .bowlFood()
+                .build();
+        addon.cookingRecipe("crab_boil")
+                .addIngredient("wilderwild:crab_claw")
+                .addTagIngredient("c:crops/potato")
+                .addTagIngredient("c:crops/onion")
+                .addTagIngredient("c:crops/tomato")
+                .result("wilderdelights:crab_boil")
+                .container("minecraft:bowl")
+                .experience(1.0f)
+                .cookingTime(200)
+                .recipeBookTab("meals")
+                .build();
+
+        addon.food("surf_and_turf_sandwich")
+                .nutrition(15)
+                .saturation(0.9f)
+                .withEffect(MobEffects.DOLPHINS_GRACE, FoodValues.MEDIUM_DURATION,0,1.0F)
+                .build();
+        addon.shapelessRecipe("surf_and_turf_sandwich")
+                .addIngredient("wilderwild:cooked_crab_claw")
+                .addTagIngredient("c:foods/cooked_meat")
+                .addTagIngredient("c:foods/leafy_green")
+                .addTagIngredient("c:foods/bread")
+                .result("wilderdelights:surf_and_turf_sandwich", 1)
+                .build();
+
+        //Cabinets
+        addon.cabinet("baobab_cabinet")
+                .soundType(SoundType.WOOD)
+                .burnTime(300)
+                .recipe(b -> b.grid("OOO", "T T", "OOO")
+                        .define('O', "wilderwild:baobab_slab")
+                        .define('T', "wilderwild:baobab_trapdoor"))
+                .build();
         addon.cabinet("cypress_cabinet")
                 .soundType(SoundType.WOOD)
                 .burnTime(300)
                 .recipe(b -> b.grid("OOO", "T T", "OOO")
                         .define('O', "wilderwild:cypress_slab")
                         .define('T', "wilderwild:cypress_trapdoor"))
-                .build(); // Registers the cabinet
+                .build();
         addon.cabinet("maple_cabinet")
                 .soundType(SoundType.WOOD)
                 .burnTime(300)
                 .recipe(b -> b.grid("OOO", "T T", "OOO")
                         .define('O', "wilderwild:maple_slab")
                         .define('T', "wilderwild:maple_trapdoor"))
-                .build(); // Registers the cabinet
+                .build();
         addon.cabinet("palm_cabinet")
                 .soundType(SoundType.WOOD)
                 .burnTime(300)
                 .recipe(b -> b.grid("OOO", "T T", "OOO")
                         .define('O', "wilderwild:palm_slab")
                         .define('T', "wilderwild:palm_trapdoor"))
-                .build(); // Registers the cabinet
+                .build();
         addon.cabinet("willow_cabinet")
                 .soundType(SoundType.WOOD)
                 .burnTime(300)
                 .recipe(b -> b.grid("OOO", "T T", "OOO")
                         .define('O', "wilderwild:willow_slab")
                         .define('T', "wilderwild:willow_trapdoor"))
-                .build(); // Registers the cabinet
-        //WW Crates
-        addon.crate("coconut_crate") // Creates a crate
-                .recipe(b -> b.grid("CCC", "CCC", "CCC") // Defines the exact crafting shape in the crafting table
-                        .define('C', "wilderwild:coconut")) // Tells the game what item the letter C represents
-                .build(); // Registers the crate
-        addon.shapelessRecipe("coconut") // Creates a shapeless recipe
-                .addIngredient("wilderdelights:coconut_crate") // Adds a required ingredient
-                .result("wilderwild:coconut", 9) // Sets the final item you receive and the amount
-                .build(); // Registers the recipe
-        addon.crate("baobab_nut_crate") // Creates a crate
-                .recipe(b -> b.grid("CCC", "CCC", "CCC") // Defines the exact crafting shape in the crafting table
-                        .define('C', "wilderwild:baobab_nut")) // Tells the game what item the letter C represents
-                .build(); // Registers the crate
-        addon.shapelessRecipe("baobab_nut") // Creates a shapeless recipe
-                .addIngredient("wilderdelights:baobab_nut_crate") // Adds a required ingredient
-                .result("wilderwild:baobab_nut", 9) // Sets the final item you receive and the amount
-                .build(); // Registers the recipe
-        addon.crate("prickly_pear_crate") // Creates a crate
-                .recipe(b -> b.grid("CCC", "CCC", "CCC") // Defines the exact crafting shape in the crafting table
-                        .define('C', "wilderwild:prickly_pear")) // Tells the game what item the letter C represents
-                .build(); // Registers the crate
-        addon.shapelessRecipe("prickly_pear") // Creates a shapeless recipe
-                .addIngredient("wilderdelights:prickly_pear_crate") // Adds a required ingredient
-                .result("wilderwild:prickly_pear", 9) // Sets the final item you receive and the amount
-                .build(); // Registers the recipe
+                .build();
+
+        // Crates
+        addon.crate("coconut_crate")
+                .recipe(b -> b.grid("CCC", "CCC", "CCC")
+                .define('C', "wilderwild:coconut"))
+                .build();
+        addon.shapelessRecipe("coconut")
+                .addIngredient("wilderdelights:coconut_crate")
+                .result("wilderwild:coconut", 9)
+                .build();
+        addon.crate("baobab_nut_crate")
+                .recipe(b -> b.grid("CCC", "CCC", "CCC")
+                .define('C', "wilderwild:baobab_nut"))
+                .build();
+        addon.shapelessRecipe("baobab_nut")
+                .addIngredient("wilderdelights:baobab_nut_crate")
+                .result("wilderwild:baobab_nut", 9)
+                .build();
+        addon.crate("prickly_pear_crate")
+                .recipe(b -> b.grid("CCC", "CCC", "CCC")
+                .define('C', "wilderwild:prickly_pear"))
+                .build();
+        addon.shapelessRecipe("prickly_pear")
+                .addIngredient("wilderdelights:prickly_pear_crate")
+                .result("wilderwild:prickly_pear", 9)
+                .build();
 
         addon.build();
     }

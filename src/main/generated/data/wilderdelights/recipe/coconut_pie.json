@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "wilderdelights:coconut_milk",
+    "P": "farmersdelight:pie_crust",
+    "S": "minecraft:sugar",
+    "W": "wilderdelights:coconut_flakes"
+  },
+  "pattern": [
+    "WWW",
+    "BBB",
+    "SPS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "wilderdelights:coconut_pie"
+  }
+}

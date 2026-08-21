@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "C": "wilderwild:peeled_prickly_pear",
+    "C": "#c:foods/prickly_pear",
     "I": "minecraft:ice",
     "S": "minecraft:stick"
   },

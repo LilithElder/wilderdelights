@@ -2,17 +2,18 @@
   "type": "farmersdelight:cooking",
   "container": {
     "count": 1,
-    "id": "farmersdelight:cooked_rice"
+    "id": "minecraft:bowl"
   },
   "experience": 1.0,
   "ingredients": [
     "wilderdelights:coconut_milk",
-    "#c:crops/onion",
-    "#c:foods/raw_chicken"
+    "#c:foods/pasta",
+    "#c:foods/vegetable",
+    "#c:mushrooms"
   ],
   "recipe_book_tab": "meals",
   "result": {
     "count": 1,
-    "id": "wilderdelights:coconut_curry"
+    "id": "wilderdelights:coconut_noodle_soup"
   }
 }

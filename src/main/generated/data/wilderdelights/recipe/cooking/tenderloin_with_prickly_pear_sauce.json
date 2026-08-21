@@ -2,17 +2,17 @@
   "type": "farmersdelight:cooking",
   "container": {
     "count": 1,
-    "id": "farmersdelight:cooked_rice"
+    "id": "minecraft:bowl"
   },
   "experience": 1.0,
   "ingredients": [
-    "wilderdelights:coconut_milk",
-    "#c:crops/onion",
-    "#c:foods/raw_chicken"
+    "#c:foods/raw_meat",
+    "#c:foods/prickly_pear",
+    "#c:crops/potato"
   ],
   "recipe_book_tab": "meals",
   "result": {
     "count": 1,
-    "id": "wilderdelights:coconut_curry"
+    "id": "wilderdelights:tenderloin_with_prickly_pear_sauce"
   }
 }
