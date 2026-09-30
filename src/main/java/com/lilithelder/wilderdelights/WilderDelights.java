@@ -3,9 +3,11 @@ package com.lilithelder.wilderdelights;
 import com.axperty.delightlib.api.DelightAddon;
 import com.axperty.delightlib.api.DelightApi;
 import net.fabricmc.api.ModInitializer;
-import net.frozenblock.wilderwild.registry.WWItems;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.SoundType;
 import vectorwing.farmersdelight.common.FoodValues;
 
@@ -16,9 +18,15 @@ public class WilderDelights implements ModInitializer {
     @Override
     public void onInitialize() {
         // Creative Tab Registry
+        // NOTE: resolved via the vanilla item registry by ID instead of referencing
+        // WWItems directly. WilderWild changed WWItems fields from Item to
+        // DeferredItem in 4.3, so old bytecode crashes with NoSuchFieldError when
+        // run against the new version. A registry lookup works with both.
         addon = DelightApi.create(MOD_ID)
                 .withCreativeTab("Wilder Delights", // Sets the add-on name in the creative tab
-                        () -> new ItemStack(WWItems.COCONUT)); // Sets a bread item icon
+                        () -> new ItemStack(BuiltInRegistries.ITEM.getOptional(
+                                Identifier.fromNamespaceAndPath("wilderwild", "split_coconut"))
+                                .orElse(Items.BREAD))); // Sets a bread item icon
 
         // Prickly Pear Popsicle
         addon.food("prickly_pear_popsicle")
