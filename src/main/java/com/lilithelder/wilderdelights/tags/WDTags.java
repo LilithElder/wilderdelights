@@ -1,4 +1,4 @@
-package com.lilithelder.wilderdelights;
+package com.lilithelder.wilderdelights.tags;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;

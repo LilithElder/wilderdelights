@@ -1,2 +1,5 @@
 // 26.1.2	-999999999-01-01T00:00:00	Wilder Delights/Tags for minecraft:block
 4d7a6ce2ff07c15446c35075e7fa87867111a3d3 data/c/tags/block/hibiscus.json
+0a39d3a74a878ed55e94bdb3bda424f2164511d0 data/farmersdelight/tags/block/compost_activators.json
+5facad91a453598c508eff04113c89a244f7c44b data/farmersdelight/tags/block/mushroom_colonies.json
+5facad91a453598c508eff04113c89a244f7c44b data/farmersdelight/tags/block/unaffected_by_rich_soil.json

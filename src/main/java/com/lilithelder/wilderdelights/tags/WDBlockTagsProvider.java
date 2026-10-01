@@ -1,17 +1,13 @@
-package com.lilithelder.wilderdelights;
+package com.lilithelder.wilderdelights.tags;
 
+import com.lilithelder.wilderdelights.mushroom.WDPaleMushroomColony;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.frozenblock.wilderwild.registry.WWBlocks;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.tags.TagAppender;
-import net.minecraft.resources.Identifier;
-import net.minecraft.tags.TagBuilder;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.block.Block;
+import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
 
 public class WDBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
     public WDBlockTagsProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookupFuture) {
@@ -26,6 +22,15 @@ public class WDBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
                 .add(WWBlocks.YELLOW_HIBISCUS)
                 .add(WWBlocks.WHITE_HIBISCUS)
                 .add(WWBlocks.PINK_HIBISCUS)
+        ;
+        valueLookupBuilder(ModTags.Blocks.UNAFFECTED_BY_RICH_SOIL)
+                .add(WDPaleMushroomColony.Pale_Mushroom_Colony)
+        ;
+        valueLookupBuilder(ModTags.Blocks.COMPOST_ACTIVATORS)
+                .add(WWBlocks.PALE_MUSHROOM)
+        ;
+        valueLookupBuilder(ModTags.Blocks.MUSHROOM_COLONIES)
+                .add(WDPaleMushroomColony.Pale_Mushroom_Colony)
         ;
     }
 

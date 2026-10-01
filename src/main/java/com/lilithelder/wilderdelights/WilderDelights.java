@@ -1,26 +1,33 @@
 package com.lilithelder.wilderdelights;
 
-import com.axperty.delightlib.api.DelightAddon;
 import com.axperty.delightlib.api.DelightApi;
 import com.axperty.delightlib.api.FoodDuration;
+import com.lilithelder.wilderdelights.mushroom.WDPaleMushroomColony;
 import net.fabricmc.api.ModInitializer;
 import net.frozenblock.wilderwild.registry.WWItems;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.SoundType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import vectorwing.farmersdelight.common.FoodValues;
-import vectorwing.farmersdelight.common.registry.ModEffects;
 
 public class WilderDelights implements ModInitializer {
     public static final String MOD_ID = "wilderdelights";
     public static DelightApi addon;
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
 
     @Override
     public void onInitialize() {
+        WDPaleMushroomColony.registerModBlocks();
+        WDPaleMushroomColony.registerModItems();
+
         // Creative Tab Registry
         addon = DelightApi.create(MOD_ID)
-                .withCreativeTab("Wilder Delights", // Sets the add-on name in the creative tab
-                        () -> new ItemStack(WWItems.SPLIT_COCONUT)); // Sets a bread item icon
+                .withCreativeTab("Wilder Delights",
+                        () -> new ItemStack(WWItems.SPLIT_COCONUT));
 
         addon.food("prickly_pear_popsicle")
                 .nutrition(3)

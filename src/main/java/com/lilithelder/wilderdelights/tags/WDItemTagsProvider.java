@@ -1,21 +1,17 @@
-package com.lilithelder.wilderdelights;
+package com.lilithelder.wilderdelights.tags;
 
+import com.lilithelder.wilderdelights.mushroom.WDPaleMushroomColony;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.frozenblock.wilderwild.registry.WWBlocks;
 import net.frozenblock.wilderwild.registry.WWItems;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.tags.TagAppender;
-import net.minecraft.resources.Identifier;
-import net.minecraft.tags.TagBuilder;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import org.jspecify.annotations.Nullable;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
 
 public class WDItemTagsProvider extends FabricTagsProvider.ItemTagsProvider {
     public WDItemTagsProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookupFuture) {
@@ -32,11 +28,17 @@ public class WDItemTagsProvider extends FabricTagsProvider.ItemTagsProvider {
                 .add(WWItems.PEELED_PRICKLY_PEAR)
         ;
         valueLookupBuilder(WDTags.Items.Hibiscus)
-                .add(Item.byBlock(WWBlocks.PINK_HIBISCUS))
-                .add(Item.byBlock(WWBlocks.RED_HIBISCUS))
-                .add(Item.byBlock(WWBlocks.PURPLE_HIBISCUS))
-                .add(Item.byBlock(WWBlocks.YELLOW_HIBISCUS))
-                .add(Item.byBlock(WWBlocks.WHITE_HIBISCUS))
+                .add(WWBlocks.PINK_HIBISCUS.asItem())
+                .add(WWBlocks.RED_HIBISCUS.asItem())
+                .add(WWBlocks.PURPLE_HIBISCUS.asItem())
+                .add(WWBlocks.YELLOW_HIBISCUS.asItem())
+                .add(WWBlocks.WHITE_HIBISCUS.asItem())
+        ;
+        valueLookupBuilder(ConventionalItemTags.MUSHROOMS)
+                .add(WWBlocks.PALE_MUSHROOM.asItem())
+        ;
+        valueLookupBuilder(ModTags.Items.MUSHROOM_COLONIES)
+                .add(WDPaleMushroomColony.Pale_Mushroom_Colony_Item)
         ;
     }
 }
